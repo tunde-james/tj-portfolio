@@ -1,18 +1,7 @@
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
-  const ResumeLink = (
-    <Link
-      className={`${styles.navlink} ${styles.resumeBtn}`}
-      to="/Babatunde_Tiamiyu_Resume.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Resume
-    </Link>
-  )
-
   return (
     <nav className={styles.nav}>
       <NavLink to="/" className={styles.logo}>
@@ -35,16 +24,23 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/skills" className={styles.navlink}>
+            Skills
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/projects" className={styles.navlink}>
             Projects
           </NavLink>
         </li>
         <li>
-          <NavLink to="/contact" className={styles.navlink}>
+          <NavLink
+            to="/contact"
+            className={`${styles.navlink} ${styles.contact}`}
+          >
             Contact
           </NavLink>
         </li>
-        <div>{ResumeLink}</div>
       </ul>
     </nav>
   )

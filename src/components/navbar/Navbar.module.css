@@ -53,6 +53,22 @@
   /* text-decoration: underline; */
 }
 
+.nav .contact {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  line-height: 0;
+  padding: 25px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 25px;
+  align-self: center;
+}
+
+.nav .contact:hover,
+.nav .contact:focus {
+  background: hsl(166 100% 70% / 0.2);
+}
+
 .nav .resumeBtn {
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
@@ -164,7 +180,7 @@
     padding: 20px 20px;
   }
 
-  .nav .resumeBtn {
+  .nav .contact {
     margin-top: 0;
   }
 
