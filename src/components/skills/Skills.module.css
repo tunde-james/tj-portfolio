@@ -1,0 +1,81 @@
+.skills {
+  background-color: var(--primary-color);
+  color: var(--terText-color);
+  padding: 70px 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.containerFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills .headerNum {
+  color: var(--accent-color);
+  margin-right: 10px;
+}
+
+.skills .iconHeader {
+  color: var(--prytext-color);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.skills .iconHeader::after {
+  content: '';
+  flex: 1 1 0;
+  border-bottom: 1px solid var(--terText-color);
+  opacity: 0.3;
+  margin: auto;
+  margin-left: 30px;
+}
+
+.skills .iconStack {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.skills .iconBox {
+  width: 40%;
+  height: 142px;
+  margin: 55px 0;
+}
+
+.iconBox .icon {
+  font-size: 7rem;
+  font-weight: 300;
+  color: var(--sectext-color);
+  text-align: center;
+}
+
+.iconBox p {
+  line-height: 1.55;
+  font-size: 1rem;
+  margin-top: 10px;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+@media (min-width: 768px) {
+  .skills .iconBox {
+    width: 15%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

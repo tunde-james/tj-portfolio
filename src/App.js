@@ -1,11 +1,14 @@
-import IndexPage from './pages'
+import { Navbar, Home, About, Skills, Projects, Contact } from './components'
 
-function App() {
+export default function App() {
   return (
     <div>
-      <IndexPage />
+      <Navbar />
+      <Home />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
     </div>
   )
 }
-
-export default App

@@ -1,197 +1,84 @@
-.nav {
-  background-color: var(--tertiary-color);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  padding: 10px 32px;
-  width: 100%;
-  z-index: 3;
-}
-
-.nav a {
-  display: inline-block;
+/* general styles */
+.navbar a {
+  display: block;
   text-decoration: none;
-  font-family: var(--secondary-font);
 }
 
-.nav .logo {
-  flex-basis: 30%;
-  max-width: 30%;
-  /* width: fit-content; */
-  padding: 10px 20px;
-  color: var(--accent-color);
-  font-size: 1.3rem;
-}
-
-.nav ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.navbar ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
-  background-color: var(--tertiary-color);
 }
 
-.nav li {
-  margin: 0 5px;
-}
-
-.nav .navlink {
-  padding: 15px 5px;
-  color: var(--prytext-color);
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.nav .navlink:hover,
-.nav .navlink:focus {
-  color: var(--accent-color);
-  /* text-decoration: underline; */
-}
-
-.nav .contact {
-  border: 1px solid var(--accent-color);
-  color: var(--accent-color);
-  line-height: 0;
-  padding: 25px;
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-top: 25px;
-  align-self: center;
-}
-
-.nav .contact:hover,
-.nav .contact:focus {
-  background: hsl(166 100% 70% / 0.2);
-}
-
-.nav .resumeBtn {
-  border: 1px solid var(--accent-color);
-  color: var(--accent-color);
-  line-height: 0;
-  padding: 25px;
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-top: 25px;
-  align-self: center;
-}
-
-.nav .resumeBtn:hover,
-.nav .resumeBtn :focus {
-  background: hsl(166 100% 70% / 0.2);
-}
-
-/* menu */
-.nav .menu {
-  clear: both;
-  flex-basis: 100%;
-  max-width: 100%;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
-}
-
-/* menu icon */
-.nav .menuIcon {
-  display: flex;
-  flex-basis: 39%;
-  justify-content: flex-end;
-  cursor: pointer;
-  max-width: 39%;
-  padding: 28px 20px;
-  position: relative;
-  user-select: none;
-}
-
-.nav .menuIcon .navIcon {
-  background: var(--accent-color);
-  display: block;
-  height: 2px;
-  position: relative;
-  transition: background 0.2s ease-out;
-  width: 18px;
-}
-
-.nav .navIcon::before,
-.nav .navIcon::after {
-  background-color: var(--accent-color);
-  content: '';
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all 0.2s ease-out;
+/* navbar */
+.navbar {
+  height: 80px;
   width: 100%;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  font-size: 1.2rem;
 }
 
-.nav .navIcon::before {
-  top: 6px;
+.navbar .logo {
+  color: var(--accent-color);
+  font-size: 1.4rem;
 }
 
-.nav .navIcon:after {
-  top: -6px;
+.navbar .menu {
+  display: flex;
+  gap: 20px;
 }
 
-/* menu btn */
-.nav .menuBtn {
+.navbar .nav__link {
+  color: var(--sectext-color);
+  transition: 0.3s all ease;
+  font-size: 1.2rem;
+}
+
+.navbar .nav__link:hover {
+  color: var(--acccent-color);
+}
+
+.nav__icon {
   display: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
-.nav .menuBtn:checked ~ .menu {
-  max-height: 100%;
-}
-
-.nav .menuBtn:checked ~ .menuIcon .navIcon {
-  background: transparent;
-}
-
-.nav .menuBtn:checked ~ .menuIcon .navIcon::before {
-  transform: rotate(-45deg);
-}
-
-.nav .menuBtn:checked ~ .menuIcon .navIcon::after {
-  transform: rotate(45deg);
-}
-
-.nav .menuBtn:checked ~ .menuIcon:not(.steps) .navIcon::before,
-.nav .menuBtn:checked ~ .menuIcon:not(.steps) .navIcon::after {
-  top: 0;
-}
-
-/* media query - 768px */
-@media (min-width: 768px) {
-  .nav {
-    flex-wrap: inherit;
+@media only screen and (max-width: 768px) {
+  .navbar {
+    position: relative;
   }
 
-  .nav ul {
-    flex-direction: row;
+  .navbar .menu {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    background-color: var(--mobile-color);
+    text-align: center;
+    width: 70%;
+    height: 100vh;
+    top: 60px;
+    right: -100%;
+    transition: all 0.5s ease-out;
   }
 
-  .nav li {
-    float: left;
+  .navbar .menu.active {
+    background-color: var(--mobile-color);
+    right: 0;
   }
 
-  .nav .navlink {
-    padding: 20px 20px;
+  .navbar .nav__item {
+    padding: 10px 0;
   }
 
-  .nav .contact {
-    margin-top: 0;
-  }
-
-  .nav .menu {
-    clear: none;
-    flex-basis: inherit;
-    max-height: none;
-    max-width: inherit;
-  }
-
-  .nav .menuIcon {
-    display: none;
+  .navbar .nav__icon {
+    display: flex;
+    transition: all 0.5s ease-out;
   }
 }

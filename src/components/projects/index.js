@@ -4,9 +4,9 @@ import ProjectLeft from '../project-left/ProjectLeft'
 
 export default function Projects() {
   return (
-    <div>
+    <section id="projects">
       <ProjectRight />
       <ProjectLeft />
-    </div>
+    </section>
   )
 }

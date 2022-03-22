@@ -1,0 +1,93 @@
+.about {
+  background-color: var(--primary-color);
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.containerFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro,
+.social {
+  padding: 40px 0;
+}
+
+/* .intro {
+  margin-top: 18px;
+} */
+
+.introText {
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  word-spacing: 4px;
+}
+
+.introName {
+  color: var(--prytext-color);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.introJob {
+  color: var(--sectext-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.introDescription {
+  color: var(--terText-color);
+  line-height: 2;
+}
+
+/* .social {
+  margin-top: -40px;
+} */
+
+.socialIcons {
+  text-align: center;
+  margin-top: 30px;
+  /* padding: 20px 0; */
+}
+
+.socialLink {
+  display: inline-block;
+  color: var(--prytext-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.socialLink:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .containerFlex {
+    flex-direction: row;
+  }
+
+  .intro,
+  .social {
+    margin-top: 60px;
+  }
+
+  .intro {
+    flex-grow: 2;
+    flex-basis: 400px;
+    margin-right: 90px;
+  }
+
+  .social {
+    flex-grow: 1;
+    flex-basis: 300px;
+  }
+
+  .socialImg {
+    margin-top: -25px;
+  }
+}

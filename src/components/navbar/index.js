@@ -1,46 +1,47 @@
-import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
+import { NavHashLink as NavLink } from 'react-router-hash-link'
+import { FiMenu, FiX } from 'react-icons/fi'
+import { MenuList } from './MenuList'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false)
+
+  const handleClick = () => {
+    setOpen(!open)
+  }
+
+  const closeMenu = () => {
+    setOpen(false)
+  }
+
+  const menuList = MenuList.map(({ url, title }, index) => {
+    return (
+      <li key={index} className={styles.nav__item}>
+        <NavLink
+          to={url}
+          smooth
+          className={styles.nav__link}
+          onClick={closeMenu}
+        >
+          {title}
+        </NavLink>
+      </li>
+    )
+  })
+
   return (
-    <nav className={styles.nav}>
-      <NavLink to="/" className={styles.logo}>
+    <nav className={styles.navbar}>
+      <NavLink to="#home" smooth className={styles.logo} onClick={closeMenu}>
         TJ👨🏾‍💻
       </NavLink>
-      <input className={styles.menuBtn} type="checkbox" id="menu-btn" />
-      <label className={styles.menuIcon} for="menu-btn">
-        <span className={styles.navIcon}></span>
-      </label>
 
-      <ul className={styles.menu}>
-        <li>
-          <NavLink to="/" className={styles.navlink}>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/about" className={styles.navlink}>
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/skills" className={styles.navlink}>
-            Skills
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/projects" className={styles.navlink}>
-            Projects
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/contact"
-            className={`${styles.navlink} ${styles.contact}`}
-          >
-            Contact
-          </NavLink>
-        </li>
+      <div className={styles.nav__icon} onClick={handleClick}>
+        {open ? <FiX /> : <FiMenu />}
+      </div>
+
+      <ul className={open ? `${styles.menu} ${styles.active}` : styles.menu}>
+        {menuList}
       </ul>
     </nav>
   )

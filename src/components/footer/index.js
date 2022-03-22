@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <section>
+    <section id="footer">
       <div>
         <p>Social Icons</p>
         <p>&copy; Tunde James 2022</p>
